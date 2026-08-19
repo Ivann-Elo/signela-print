@@ -1,26 +1,154 @@
 @import "tailwindcss";
 
+/* ============ Signela — design tokens ============
+   Transcribed verbatim from the Signela design system
+   (Claude Design project "Site imprimerie multipages"). */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand */
+  --sig-lime: #c8e020; /* primary action, badges, accents */
+  --sig-lime-dark: #a8bc10; /* lime hover / border on lime */
+  --sig-ink: #0d0d12; /* primary dark surface, dark text */
+  --sig-black: #060608; /* footer / deepest surface */
+  --sig-navy: #111827; /* hero / category-tile surface */
+  --sig-navy-800: #1e3a5f; /* logo mark navy accent */
+
+  /* Neutral ramp */
+  --sig-white: #ffffff;
+  --sig-zinc-100: #f4f4f5; /* muted surface (image wells, feature cards) */
+  --sig-gray-200: #e5e7eb; /* hairline borders */
+  --sig-gray-400: #9ca3af;
+  --sig-gray-500: #6b7280; /* muted / helper text */
+  --sig-gray-700: #374151; /* secondary text, nav labels */
+  --sig-gray-900: #111827;
+
+  /* Semantic */
+  --sig-sale: #dc2626; /* price / promo pill */
+  --sig-rating: #00b67a; /* Trustpilot stars */
+
+  /* Semantic aliases */
+  --color-bg: var(--sig-white);
+  --color-surface: var(--sig-white);
+  --color-surface-muted: var(--sig-zinc-100);
+  --color-surface-dark: var(--sig-navy);
+  --color-surface-inverse: var(--sig-ink);
+  --color-border: var(--sig-gray-200);
+  --color-border-strong: var(--sig-gray-400);
+
+  --text-strong: var(--sig-ink);
+  --text-body: var(--sig-gray-700);
+  --text-muted: var(--sig-gray-500);
+  --text-on-dark: var(--sig-white);
+  --text-on-dark-muted: rgba(255, 255, 255, 0.75);
+  --text-on-dark-soft: rgba(255, 255, 255, 0.85);
+  --text-on-lime: var(--sig-ink);
+
+  --action-primary: var(--sig-lime);
+  --action-primary-hover: var(--sig-lime-dark);
+  --action-dark: var(--sig-ink);
+  --action-danger: var(--sig-sale);
+  --focus-ring: rgba(200, 224, 32, 0.55);
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* Radii (flat, border-based system — no drop shadows) */
+  --radius-sm: 4px; /* badges, promo pill */
+  --radius-md: 6px; /* buttons, inputs */
+  --radius-lg: 10px; /* category tiles */
+  --radius-xl: 12px; /* product cards */
+
+  --border-hairline: 1px solid var(--color-border);
+
+  /* Layout */
+  --container-max: 1320px;
+  --container-pad: 24px;
+
+  /* Type scale (px, as used in source) */
+  --fs-display: 56px;
+  --fs-h1: 32px;
+  --fs-h2: 24px;
+  --fs-h3: 18px;
+  --fs-lg: 16px;
+  --fs-base: 14px;
+  --fs-sm: 13px;
+  --fs-xs: 12px;
+  --fs-label: 11.5px;
+  --fs-micro: 10.4px;
+
+  --lh-tight: 1;
+  --lh-snug: 1.2;
+  --lh-normal: 1.5;
+
+  --ls-display: -1.12px;
+  --ls-label: 0.9px;
+  --ls-badge: 1.04px;
+  --ls-eyebrow: 0.62px;
 }
 
+/* Register the tokens Tailwind v4 should turn into utilities
+   (bg-sig-lime, text-sig-ink, rounded-sig-xl, container-sig, …). */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-outfit);
+
+  --color-sig-lime: var(--sig-lime);
+  --color-sig-lime-dark: var(--sig-lime-dark);
+  --color-sig-ink: var(--sig-ink);
+  --color-sig-black: var(--sig-black);
+  --color-sig-navy: var(--sig-navy);
+  --color-sig-navy-800: var(--sig-navy-800);
+  --color-sig-white: var(--sig-white);
+  --color-sig-zinc-100: var(--sig-zinc-100);
+  --color-sig-gray-200: var(--sig-gray-200);
+  --color-sig-gray-400: var(--sig-gray-400);
+  --color-sig-gray-500: var(--sig-gray-500);
+  --color-sig-gray-700: var(--sig-gray-700);
+  --color-sig-sale: var(--sig-sale);
+  --color-sig-rating: var(--sig-rating);
+
+  --radius-sig-sm: var(--radius-sm);
+  --radius-sig-md: var(--radius-md);
+  --radius-sig-lg: var(--radius-lg);
+  --radius-sig-xl: var(--radius-xl);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--sig-white);
+  color: var(--text-strong);
+  font-family: var(--font-sans);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.sig-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+}
+
+@keyframes sig-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }

@@ -1,69 +1,89 @@
-import Image from "next/image";
+import HeroCarousel from "@/components/HeroCarousel";
+import TrustItem from "@/components/ui/TrustItem";
+import Rating from "@/components/ui/Rating";
+import ProductCard from "@/components/ui/ProductCard";
+import CategoryTile from "@/components/ui/CategoryTile";
+import FeatureCard from "@/components/ui/FeatureCard";
+import Button from "@/components/ui/Button";
+import { CATEGORY_ORDER, CATS, PRODUCTS, TOP_PRODUCT_SLUGS, cardOf } from "@/lib/data";
 
-export default function Home() {
+export default function HomePage() {
+  const topProducts = TOP_PRODUCT_SLUGS.map((slug) => cardOf(PRODUCTS.find((p) => p.slug === slug)!));
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <HeroCarousel />
+
+      <div style={{ borderBottom: "1px solid var(--color-border)", background: "#fff" }}>
+        <div className="sig-container flex flex-wrap items-center gap-6 py-4.5 sm:gap-7">
+          <TrustItem icon="✓" label="Imprimé en France" sub="Atelier local à Paris" />
+          <TrustItem icon="✓" label="Livraison gratuite" sub="Dès 150€ HT en France" />
+          <TrustItem icon="✓" label="Satisfait ou réimprimé" sub="Garantie qualité" />
+          <TrustItem icon="✓" label="Devis en 24h" sub="Réponse rapide" />
+          <span className="hidden flex-1 sm:block" />
+          <Rating score={4} />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </div>
+
+      <section style={{ background: "#fff" }}>
+        <div className="sig-container py-10 md:py-14">
+          <h2 className="flex items-center" style={{ margin: "0 0 28px", fontWeight: 900, fontSize: 28, letterSpacing: "-0.4px", color: "var(--text-strong)" }}>
+            <span style={{ width: 14, height: 14, background: "var(--sig-ink)", display: "inline-block", borderRadius: 2, marginRight: 10 }} />
+            Top produits
+          </h2>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {topProducts.map((card) => (
+              <ProductCard key={card.href} {...card} />
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section style={{ background: "var(--sig-zinc-100)" }}>
+        <div className="sig-container py-10 md:py-14">
+          <h2 className="flex items-center" style={{ margin: "0 0 28px", fontWeight: 900, fontSize: 28, letterSpacing: "-0.4px", color: "var(--text-strong)" }}>
+            <span style={{ width: 14, height: 14, background: "var(--sig-ink)", display: "inline-block", borderRadius: 2, marginRight: 10 }} />
+            Nos gammes
+          </h2>
+          <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
+            {CATEGORY_ORDER.map((key) => (
+              <CategoryTile
+                key={key}
+                image={CATS[key].image}
+                title={CATS[key].label}
+                subtitle={CATS[key].subtitle}
+                href={`/categorie/${key}`}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section style={{ background: "#fff" }}>
+        <div className="sig-container grid grid-cols-1 items-center gap-10 py-14 md:grid-cols-2 md:gap-14 md:py-16">
+          <div>
+            <div style={{ fontWeight: 700, fontSize: 12, letterSpacing: "0.9px", textTransform: "uppercase", color: "var(--sig-lime-dark)", marginBottom: 14 }}>
+              Pourquoi choisir SIGNELA ?
+            </div>
+            <h2 className="text-[30px] md:text-[40px]" style={{ margin: 0, fontWeight: 900, lineHeight: 1.1, letterSpacing: "-0.8px", color: "var(--text-strong)" }}>
+              Le savoir-faire local
+              <br />à la portée de tous
+            </h2>
+            <p style={{ margin: "20px 0 28px", fontSize: 15, lineHeight: 1.6, color: "var(--text-muted)", maxWidth: 440 }}>
+              Depuis 1998, nous imprimons vos supports de communication avec la rigueur d&apos;un atelier artisanal et les équipements d&apos;une imprimerie moderne. Devis gratuit, réponse en 24h.
+            </p>
+            <Button href="/contact" variant="primary" arrow>
+              Demander un devis gratuit
+            </Button>
+          </div>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <FeatureCard icon="■" title="Qualité garantie" description="Chaque commande est vérifiée avant expédition. Satisfait ou réimprimé." />
+            <FeatureCard icon="■" title="Délais respectés" description="Production locale = réactivité. Urgences traitées en priorité." />
+            <FeatureCard icon="■" title="Accompagnement" description="De la mise en page à la livraison, notre équipe vous guide." />
+            <FeatureCard icon="■" title="Prix compétitifs" description="Tarifs imprimerie industrielle, qualité atelier local." />
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
