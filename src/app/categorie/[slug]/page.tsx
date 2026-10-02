@@ -1,3 +1,23 @@
+// ============================================================
+// FICHIER : src/app/categorie/[slug]/page.tsx
+// URL     : http://localhost:3000/categorie/imprimerie
+//           http://localhost:3000/categorie/panneaux
+//           http://localhost:3000/categorie/banderoles
+//           http://localhost:3000/categorie/stands
+// ============================================================
+// Ce fichier génère UNE page pour CHAQUE catégorie.
+// Le [slug] dans l'URL détermine quelle catégorie est affichée.
+//
+// POUR MODIFIER LES CATÉGORIES :
+//   → Titres, sous-titres, images, texte intro → src/lib/data.ts (export CATS)
+//   → Liste des produits de chaque catégorie   → src/lib/data.ts (export PRODUCTS)
+//
+// SECTIONS DE LA PAGE :
+//   1. Hero avec image de fond (titre + intro de la catégorie)
+//   2. Grille de produits     → src/components/ui/ProductCard.tsx
+//   3. Bloc CTA "Un projet sur mesure ?"
+// ============================================================
+
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";

@@ -1,3 +1,17 @@
+// ============================================================
+// FICHIER : src/app/suivi/page.tsx
+// URL     : http://localhost:3000/suivi
+// ============================================================
+// Page "Suivi de commande" (espace client).
+//
+// POUR MODIFIER LE TITRE ET LE TEXTE D'INTRO :
+//   → modifiez directement le JSX ci-dessous
+//
+// FORMULAIRE DE SUIVI :
+//   → src/components/SuiviForm.tsx
+//   (champs numéro de commande + email)
+// ============================================================
+
 import type { Metadata } from "next";
 import SuiviForm from "@/components/SuiviForm";
 

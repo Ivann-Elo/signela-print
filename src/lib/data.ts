@@ -1,5 +1,32 @@
-// Signela — catalogue & content data.
-// Transcribed from the SIGNELA design (Claude Design project "Site imprimerie multipages").
+// ============================================================
+// FICHIER : src/lib/data.ts
+// RÔLE    : Source de données centrale du site.
+//           Toutes les données affichées sur le site viennent d'ici.
+// ============================================================
+// CE QUE VOUS POUVEZ MODIFIER ICI :
+//
+//   CATS           → Noms, sous-titres, images et textes des 4 catégories
+//                    (Imprimerie / Panneaux / Banderoles / Stands & PLV)
+//
+//   CATEGORY_ORDER → Ordre d'affichage des catégories sur la page d'accueil
+//
+//   PRODUCTS       → Liste complète des produits :
+//                    slug (identifiant URL), titre, tagline, prix, unité,
+//                    badge ("Bestseller", "Prémium"...), description, avantages
+//                    et image (dans /public/images/)
+//
+//   TOP_PRODUCT_SLUGS → 6 produits mis en avant sur la page d'accueil
+//
+//   HERO           → 3 slides du carrousel de la page d'accueil
+//                    (badge, titre, sous-titre, prix, image, 3 arguments)
+//
+//   LEGAL          → Sections des mentions légales et CGV
+//                    (/mentions-legales)
+// ============================================================
+// IMAGES : placez vos images dans /public/images/
+//          et référencez-les avec le nom du fichier uniquement
+//          (ex: "mon-produit.jpg" → img: "mon-produit.jpg")
+// ============================================================
 
 export type CategoryKey = "imprimerie" | "panneaux" | "banderoles" | "stands";
 
@@ -311,15 +338,15 @@ export const PRODUCTS: Product[] = [
     img: "prod-rollup.jpg",
     title: "Roll-up / Kakémono",
     tagline: "L'enrouleur mobile, montage en 30 secondes.",
-    price: "49,00€",
+    price: "50,00€",
     unit: "/unité",
     badge: "Bestseller",
-    desc: "Le stand mobile le plus vendu : bâche PVC 510 g/m² certifiée M1 sur structure aluminium, enrouleur automatique et visuel interchangeable par clips. Sac de transport fourni. Se déploie et se range en quelques secondes.",
+    desc: "Stand mobile disponible en deux formats (850×1000 mm et 850×1200 mm), en qualité Éco ou Standard. Toile M1 280 g/m² sans PVC, dos gris. Structure aluminium, enrouleur automatique et sac de transport fourni.",
     adv: [
-      "Bâche PVC 510 g/m², certifiée M1",
-      "Structure aluminium, clips de fixation",
-      "Sac de transport fourni",
-      "Formats 60 à 150 cm",
+      "Toile M1 280 g/m² sans PVC – dos gris",
+      "2 formats : 850×1000 mm et 850×1200 mm",
+      "Qualité Éco (50 €) ou Standard (65 €)",
+      "Structure aluminium + sac de transport",
     ],
   },
   {

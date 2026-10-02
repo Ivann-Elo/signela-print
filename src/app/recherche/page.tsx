@@ -1,3 +1,21 @@
+// ============================================================
+// FICHIER : src/app/recherche/page.tsx
+// URL     : http://localhost:3000/recherche?q=panneau
+// ============================================================
+// Page de résultats de recherche.
+// La recherche se fait via le paramètre URL "q" (ex: ?q=rollup).
+//
+// LOGIQUE DE RECHERCHE :
+//   → src/lib/data.ts  (fonction searchProducts)
+//   Cherche dans : titre, tagline et catégorie de chaque produit.
+//
+// POUR MODIFIER LE MESSAGE "Aucun produit trouvé" :
+//   → cherchez "Aucun produit trouvé" plus bas dans ce fichier
+//
+// BARRE DE RECHERCHE (saisie) :
+//   → src/components/ui/SearchBar.tsx
+// ============================================================
+
 import type { Metadata } from "next";
 import Link from "next/link";
 import ProductCard from "@/components/ui/ProductCard";

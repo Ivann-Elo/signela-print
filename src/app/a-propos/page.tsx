@@ -1,3 +1,27 @@
+// ============================================================
+// FICHIER : src/app/a-propos/page.tsx
+// URL     : http://localhost:3000/a-propos
+// ============================================================
+// SECTIONS DE LA PAGE (dans l'ordre d'affichage) :
+//   1. Hero (bandeau sombre avec image de fond)
+//      → titre, sous-titre et texte d'intro modifiables directement ici
+//      → image de fond : /public/images/hero-atelier.jpg
+//   2. "Un atelier, deux mondes"
+//      → deux paragraphes de texte modifiables directement ici
+//      → image : /public/images/cat-panneaux.jpg
+//   3. "Nos engagements" (4 cartes)
+//      → src/components/ui/FeatureCard.tsx
+//      → textes des 4 cartes modifiables directement ici
+//   4. Chiffres clés (4 stats)
+//      → tableau STATS ci-dessous — modifiez value et label
+//   5. Bloc CTA "Travaillons ensemble"
+//      → texte et lien du bouton modifiables directement ici
+// ============================================================
+// TITRE & DESCRIPTION SEO :
+//   → metadata.title       : onglet et Google
+//   → metadata.description : résumé Google
+// ============================================================
+
 import type { Metadata } from "next";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
@@ -8,6 +32,7 @@ export const metadata: Metadata = {
   description: "L'imprimerie hybride, locale & en ligne. SIGNELA imprime vos supports depuis 1998, dans son atelier Normand.",
 };
 
+// ← Modifiez les 4 chiffres affichés dans la section statistiques
 const STATS = [
   { value: "2022", label: "Année de création" },
   { value: "+25 000", label: "Commandes livrées" },

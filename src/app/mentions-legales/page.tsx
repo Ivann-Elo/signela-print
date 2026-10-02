@@ -1,3 +1,17 @@
+// ============================================================
+// FICHIER : src/app/mentions-legales/page.tsx
+// URL     : http://localhost:3000/mentions-legales
+// ============================================================
+// Cette page affiche les mentions légales et CGV.
+//
+// POUR MODIFIER LES TEXTES DES MENTIONS LÉGALES :
+//   → src/lib/data.ts  (export LEGAL — tableau de sections title + body)
+//
+// La page boucle automatiquement sur toutes les sections de LEGAL.
+// Ajoutez, supprimez ou modifiez une entrée dans LEGAL pour
+// changer ce qui est affiché ici.
+// ============================================================
+
 import type { Metadata } from "next";
 import { LEGAL } from "@/lib/data";
 

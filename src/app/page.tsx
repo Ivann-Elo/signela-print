@@ -1,3 +1,20 @@
+// ============================================================
+// FICHIER : src/app/page.tsx
+// URL     : http://localhost:3000/  (page d'accueil)
+// ============================================================
+// SECTIONS DE LA PAGE (dans l'ordre d'affichage) :
+//   1. Carrousel hero         → composant src/components/HeroCarousel.tsx
+//                               Données des slides → src/lib/data.ts  (export HERO)
+//   2. Bandeau de confiance   → textes modifiables directement ci-dessous
+//                               (icône ✓, labels et sous-titres des 4 arguments)
+//   3. "Top produits"         → produits choisis dans src/lib/data.ts (export TOP_PRODUCT_SLUGS)
+//                               Carte produit     → src/components/ui/ProductCard.tsx
+//   4. "Nos gammes"           → 4 tuiles de catégories (données dans src/lib/data.ts → CATS)
+//                               Tuile             → src/components/ui/CategoryTile.tsx
+//   5. Section "Pourquoi SIGNELA" → textes modifiables directement ci-dessous
+//                               Cartes avantages  → src/components/ui/FeatureCard.tsx
+// ============================================================
+
 import HeroCarousel from "@/components/HeroCarousel";
 import TrustItem from "@/components/ui/TrustItem";
 import Rating from "@/components/ui/Rating";

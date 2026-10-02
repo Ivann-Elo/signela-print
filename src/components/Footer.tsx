@@ -15,7 +15,7 @@ export default function Footer() {
           <div className="flex flex-col gap-2" style={{ fontSize: 13, color: "rgba(255,255,255,0.6)" }}>
             <div>📍 31P Av des carrières, 14760 Bretteville-sur-odon</div>
             <div>📞 02 85 85 55 22</div>
-            <div>✉️ gestion@signela.fr</div>
+            <a href="mailto:contact@signela.fr">✉️ contact@signela.fr</a>
           </div>
         </div>
 

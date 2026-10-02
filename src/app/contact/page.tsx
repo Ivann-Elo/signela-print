@@ -1,3 +1,17 @@
+// ============================================================
+// FICHIER : src/app/contact/page.tsx
+// URL     : http://localhost:3000/contact
+// ============================================================
+// SECTIONS DE LA PAGE :
+//   1. Colonne gauche : coordonnées et accroche
+//      → adresse, téléphone, email, horaires modifiables directement ici
+//   2. Colonne droite : formulaire de contact
+//      → champs et logique du formulaire → src/components/ContactForm.tsx
+// ============================================================
+// ASTUCE : L'URL /contact?produit=panneaux pré-sélectionne
+//          la catégorie dans le formulaire (paramètre "produit").
+// ============================================================
+
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 

@@ -118,6 +118,9 @@ export default function Header() {
           <Link href="/contact" className="py-3.5 px-5" style={{ fontWeight: 600, fontSize: 13.6, color: "var(--text-body)" }}>
             Contact
           </Link>
+          <Link href="/compte/commandes" className="py-3.5 px-5" style={{ fontWeight: 600, fontSize: 13.6, color: "var(--text-body)" }}>
+            Mon compte
+          </Link>
         </div>
 
         {openMenu && (
@@ -211,8 +214,11 @@ export default function Header() {
               <Link href="/contact" className="py-3.5" style={{ fontWeight: 700, fontSize: 15, color: "var(--text-strong)", borderBottom: "1px solid var(--color-border)" }}>
                 Contact
               </Link>
-              <Link href="/suivi" className="py-3.5" style={{ fontWeight: 700, fontSize: 15, color: "var(--text-strong)" }}>
+              <Link href="/suivi" className="py-3.5" style={{ fontWeight: 700, fontSize: 15, color: "var(--text-strong)", borderBottom: "1px solid var(--color-border)" }}>
                 Suivi de commande
+              </Link>
+              <Link href="/compte/commandes" className="py-3.5" style={{ fontWeight: 700, fontSize: 15, color: "var(--text-strong)" }}>
+                Mon compte
               </Link>
             </div>
 
